@@ -12,17 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KMA_Practice"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".bai4.Bai4Activity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".bai5.Bai5Activity"
+            android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".bai4.Bai4Activity" -->
+        <!-- android:exported="false" /> -->
         <!-- <activity -->
         <!-- android:name=".bai3.Bai3" -->
         <!-- android:exported="false" /> -->
-        <!-- <activity -->
-        <!-- android:name=".Bai2" -->
-        <!-- android:exported="false" /> -->
+<!--         <activity -->
+<!--         android:name=".Bai2" -->
+<!--         android:exported="false" /> -->
         <activity
-            android:name=".bai4.Bai4Activity"
+            android:name=".Bai2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
