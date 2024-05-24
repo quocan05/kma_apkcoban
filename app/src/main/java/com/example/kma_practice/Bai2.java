@@ -16,6 +16,8 @@ public class Bai2 extends AppCompatActivity {
     double secondNumber = 0;
     String operator = "";
     boolean isOperatorPressed = false;
+    String currentInput = "";
+
 
 
 
@@ -96,50 +98,61 @@ public class Bai2 extends AppCompatActivity {
     }
 
 
+    void setInput(String number){
+        if (isOperatorPressed) {
+            edtCalculator.setText("");
+            isOperatorPressed = false;
+        }
+        currentInput += number;
+        edtCalculator.setText(currentInput);
+    }
+
     void setOperator(String op) {
-        firstNumber = Double.parseDouble(edtCalculator.getText().toString());
-        operator = op;
-        isOperatorPressed = true;
+        if (!currentInput.isEmpty()) {
+            firstNumber = Double.parseDouble(currentInput);
+            operator = op;
+            isOperatorPressed = true;
+            currentInput = "";
+        }
     }
 
     void calculateResult() {
-        secondNumber = Double.parseDouble(edtCalculator.getText().toString());
-        double result = 0;
-        switch (operator) {
-            case "+":
-                result = firstNumber + secondNumber;
-                break;
-            case "-":
-                result = firstNumber - secondNumber;
-                break;
-            case "*":
-                result = firstNumber * secondNumber;
-                break;
-            case "/":
-                if (secondNumber != 0) {
-                    result = firstNumber / secondNumber;
-                } else {
-                    edtCalculator.setText("Error");
-                    return;
-                }
-                break;
+        if (!currentInput.isEmpty()) {
+            double secondNumber = Double.parseDouble(currentInput);
+            double result = 0;
+            switch (operator) {
+                case "+":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    if (secondNumber != 0) {
+                        result = firstNumber / secondNumber;
+                    } else {
+                        edtCalculator.setText("Error");
+                        return;
+                    }
+                    break;
+            }
+            edtCalculator.setText(Double.toString(result));
+            currentInput = Double.toString(result);
+            firstNumber = result;
+            isOperatorPressed = false;
         }
-        edtCalculator.setText(Double.toString(result));
-        isOperatorPressed = false;
     }
 
     void clearInput() {
         edtCalculator.setText("");
         firstNumber = 0;
-        secondNumber = 0;
+        currentInput = "";
         operator = "";
         isOperatorPressed = false;
     }
-
-    void setInput(String number) {
-        edtCalculator.setText(number);
-    }
-
     void initUI() {
         edtCalculator = findViewById(R.id.edtInputCalculator);
 
