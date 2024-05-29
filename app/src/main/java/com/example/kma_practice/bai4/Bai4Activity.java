@@ -1,5 +1,6 @@
 package com.example.kma_practice.bai4;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.kma_practice.R;
+import com.example.kma_practice.bai3.Bai3;
 
 public class Bai4Activity extends AppCompatActivity {
     EditText edtUsername, edtPassword;
@@ -52,7 +54,10 @@ public class Bai4Activity extends AppCompatActivity {
                         userFound = true;
                         if (user.getPassword().equals(password)) {
                             Toast.makeText(Bai4Activity.this, "success", Toast.LENGTH_SHORT).show();
-                            return;
+                            Intent danhBa = new Intent(getApplicationContext(), Bai3.class);
+                            startActivity(danhBa);
+                            //finish();
+                            //return;
                         } else {
                             Toast.makeText(Bai4Activity.this, "wrong password", Toast.LENGTH_SHORT).show();
                             return;
