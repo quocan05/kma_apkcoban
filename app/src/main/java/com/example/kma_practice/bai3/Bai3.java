@@ -1,9 +1,13 @@
 package com.example.kma_practice.bai3;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -25,9 +29,17 @@ public class Bai3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_bai3);
+
+        requestPermission();
         addItem();
         initUI();
 
+    }
+
+    public void requestPermission() {
+        if (ContextCompat.checkSelfPermission(this,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[] {android.Manifest.permission.CALL_PHONE},123);
+        }
     }
 
     void addItem(){
@@ -44,5 +56,13 @@ public class Bai3 extends AppCompatActivity {
         rcv = findViewById(R.id.rcvContacts);
         rcv.setLayoutManager(new LinearLayoutManager(this));
         rcv.setAdapter(new MyAdapter(getApplicationContext(), list));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (!(grantResults[0] == PackageManager.PERMISSION_GRANTED) && requestCode == 123) {
+            requestPermission();
+        }
     }
 }

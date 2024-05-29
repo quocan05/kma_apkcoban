@@ -53,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent quaySo = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: "+holder.tvNumber.getText()));
+                Intent quaySo = new Intent(Intent.ACTION_CALL, Uri.parse("tel: "+holder.tvNumber.getText()));
                 quaySo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(quaySo);
             }
