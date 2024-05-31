@@ -3,6 +3,8 @@ package com.example.kma_practice.bai3;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kma_practice.R;
+import com.example.kma_practice.bai7.Bai7Activity;
 import com.example.kma_practice.object.ItemBai3;
 
 import java.util.List;
@@ -53,9 +56,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent quaySo = new Intent(Intent.ACTION_CALL, Uri.parse("tel: "+holder.tvNumber.getText()));
-                quaySo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(quaySo);
+//                Intent quaySo = new Intent(Intent.ACTION_CALL, Uri.parse("tel: "+holder.tvNumber.getText()));
+//                quaySo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(quaySo);
+                Intent intent = new Intent(v.getContext(), Bai7Activity.class);
+
+                intent.putExtra("name", list.get(position).getName());
+                intent.putExtra("location", list.get(position).getLocation());
+                intent.putExtra("phone", list.get(position).getPhoneNumber());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
             }
         });
 

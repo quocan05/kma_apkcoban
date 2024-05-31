@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
@@ -18,9 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KMA_Practice"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".bai6.Bai6Activity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".bai7.Bai7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".bai7"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".bai6.Bai6Activity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".bai5.Bai5Activity"
             android:exported="false" /> <!-- <activity -->
