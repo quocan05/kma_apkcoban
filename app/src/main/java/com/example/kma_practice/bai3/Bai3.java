@@ -45,12 +45,12 @@ public class Bai3 extends AppCompatActivity {
     void addItem(){
         list = new ArrayList<ItemBai3>();
         list.add(new ItemBai3("Quoc An", "0989999999", R.mipmap.blueicon, "Hung Yen"));
-        list.add(new ItemBai3("Nhung Cute", "09899399999", R.mipmap.blueicon, "Nghe An"));
-        list.add(new ItemBai3("Pham Hoang", "0989993329999", R.mipmap.blueicon, "Hoa Cai do"));
-        list.add(new ItemBai3("Trung Hieu", "098999923999", R.mipmap.blueicon, "Ha Nam"));
-        list.add(new ItemBai3("Hoang Cau", "098992134999", R.mipmap.blueicon, "Ha Noi"));
-        list.add(new ItemBai3("Goku", "09899949999", R.mipmap.blueicon,"Earth"));
-        list.add(new ItemBai3("Vegeta", "098939991999", R.mipmap.blueicon,"Vegeta"));
+        list.add(new ItemBai3("Nhung nhung", "09899399999", R.mipmap.blueicon, "Nghe An"));
+        list.add(new ItemBai3("okkkk", "0989993329999", R.mipmap.blueicon, " ansjdkabs"));
+        list.add(new ItemBai3("abvasc", "098999923999", R.mipmap.blueicon, "Ha Nam"));
+        list.add(new ItemBai3("asasa", "098992134999", R.mipmap.blueicon, "Ha Noi"));
+        list.add(new ItemBai3("aswww", "09899949999", R.mipmap.blueicon,"Earth"));
+        list.add(new ItemBai3("wewewa", "098939991999", R.mipmap.blueicon,"Vegeta"));
     }
     void initUI() {
         rcv = findViewById(R.id.rcvContacts);

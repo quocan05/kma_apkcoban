@@ -21,9 +21,7 @@
         <activity
             android:name=".bai7.Bai7Activity"
             android:exported="false" />
-        <activity
-            android:name=".bai7"
-            android:exported="false" /> <!-- <activity -->
+
         <!-- android:name=".bai6.Bai6Activity" -->
         <!-- android:exported="false" /> -->
         <activity
