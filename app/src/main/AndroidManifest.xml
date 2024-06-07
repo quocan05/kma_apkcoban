@@ -18,24 +18,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KMA_Practice"
         tools:targetApi="31">
+        <service
+            android:name=".bai8.PlaySongService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity
+            android:name=".bai8.SongActivity"
+            android:exported="false" />
         <activity
             android:name=".bai7.Bai7Activity"
-            android:exported="false" />
-
-        <!-- android:name=".bai6.Bai6Activity" -->
+            android:exported="false" /> <!-- android:name=".bai6.Bai6Activity" -->
         <!-- android:exported="false" /> -->
         <activity
             android:name=".bai5.Bai5Activity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".bai4.Bai4Activity" -->
         <!-- android:exported="false" /> -->
-        <activity
-            android:name=".bai3.Bai3"
-            android:exported="false" /> <!-- <activity -->
+<!--        <activity-->
+<!--            android:name=".bai3.Bai3"-->
+<!--            android:exported="false" /> &lt;!&ndash; <activity &ndash;&gt;-->
         <!-- android:name=".Bai2" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".bai4.Bai4Activity"
+            android:name=".bai3.Bai3"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
