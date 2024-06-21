@@ -44,11 +44,10 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+        return "Account: " +
+                "name: '" + name + '\'' +
+                ", phoneNumber: '" + phoneNumber + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 }

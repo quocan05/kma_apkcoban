@@ -1,6 +1,8 @@
 package com.example.kma_practice.bai4;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.kma_practice.R;
+import com.example.kma_practice.bai10.Bai10Activity;
 import com.example.kma_practice.bai3.Bai3;
 
 public class Bai4Activity extends AppCompatActivity {
@@ -28,6 +31,17 @@ public class Bai4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_bai4);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("logged_in", false);
+
+        if (isLoggedIn) {
+            Intent intent = new Intent(Bai4Activity.this, Bai10Activity.class);
+            intent.putExtra("user", sharedPreferences.getString("user", ""));
+            startActivity(intent);
+            finish();
+        }
+
         listUser = new ListUser();
         initUI();
         createAction();
@@ -53,8 +67,17 @@ public class Bai4Activity extends AppCompatActivity {
                     if (user.getUsername().equals(username)) {
                         userFound = true;
                         if (user.getPassword().equals(password)) {
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putBoolean("logged_in", true);
+                            editor.putString("user", user.toString());
+                            editor.apply();
+                            editor.commit();
+
                             Toast.makeText(Bai4Activity.this, "success", Toast.LENGTH_SHORT).show();
-                            Intent danhBa = new Intent(getApplicationContext(), Bai3.class);
+                            Intent danhBa = new Intent(getApplicationContext(), Bai10Activity.class);
+                            danhBa.putExtra("user", user.toString());
                             startActivity(danhBa);
                             //finish();
                             //return;

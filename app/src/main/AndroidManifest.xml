@@ -18,15 +18,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KMA_Practice"
         tools:targetApi="31">
+        <activity
+            android:name=".bai10.Bai10Activity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".bai9.MyReceiverOpenSong"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.START_MUSIC_SERVICE" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name=".bai9.MyReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
             </intent-filter>
-        </receiver>
-        <!-- <activity -->
+        </receiver> <!-- <activity -->
         <!-- android:name=".bai9.Bai9Activity" -->
         <!-- android:exported="false" /> -->
         <service
@@ -52,7 +63,7 @@
         <!-- android:name=".Bai2" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".bai9.Bai9Activity"
+            android:name=".bai4.Bai4Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 
+import com.example.kma_practice.R;
+
 public class PlaySongService extends Service {
 
     private MediaPlayer mediaPlayer;
@@ -32,17 +34,16 @@ public class PlaySongService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         int songLink = intent.getIntExtra("song", -1);
+        int songBroadcast = R.raw.nhungloidoigian;
         if(songLink != -1){
             if(mediaPlayer != null){
                 mediaPlayer.stop();
                 mediaPlayer.release();
             }
-            mediaPlayer = MediaPlayer.create(this, songLink);
+            mediaPlayer = MediaPlayer.create(this, songBroadcast);
             mediaPlayer.setLooping(true);
             mediaPlayer.start();
         }
         return super.onStartCommand(intent, flags, startId);
-
-
     }
 }
