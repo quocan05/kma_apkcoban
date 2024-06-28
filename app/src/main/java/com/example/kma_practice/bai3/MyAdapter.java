@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kma_practice.R;
+import com.example.kma_practice.bai10.AccountBai10;
 import com.example.kma_practice.bai8.Song;
 import com.example.kma_practice.bai8.SongActivity;
 
@@ -21,13 +22,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     private OnItemClickListener listener;
 
 
-    public MyAdapter(Context context, List<Song> list) {
+    public MyAdapter(Context context, List<AccountBai10> list) {
         this.context = context;
         this.list = list;
     }
 
-    List<Song> list;
-
+    List<AccountBai10> list;
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
@@ -47,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         holder.tvName.setText(list.get(position).getName());
-        holder.tvNumber.setText(list.get(position).getAuthor());
+        holder.tvNumber.setText(list.get(position).getPhoneNumber());
 //        holder.img.setImageResource(list.get(position).getImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -55,14 +55,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             public void onClick(View v) {
 //                Intent quaySo = new Intent(Intent.ACTION_CALL, Uri.parse("tel: "+holder.tvNumber.getText()));
 //                quaySo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                context.startActivity(quaySo);
-                Intent intent = new Intent(v.getContext(), SongActivity.class);
-
-//                intent.putExtra("name", list.get(position).getName());
-                    intent.putExtra("song", list.get(position).getLink());
-                    intent.putExtra("name_song", list.get(position).getName());
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+////                context.startActivity(quaySo);
+//                Intent intent = new Intent(v.getContext(), SongActivity.class);
+//
+////                intent.putExtra("name", list.get(position).getName());
+//                    intent.putExtra("song", list.get(position).getLink());
+//                    intent.putExtra("name_song", list.get(position).getName());
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
 
             }
         });

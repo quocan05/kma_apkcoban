@@ -42,7 +42,6 @@ public class Bai10Activity extends AppCompatActivity {
                 editor.remove("user");
                 editor.apply();
 
-                // Redirect to Bai4Activity
                 Intent intentLogout = new Intent(Bai10Activity.this, Bai4Activity.class);
                 startActivity(intentLogout);
                 finish();

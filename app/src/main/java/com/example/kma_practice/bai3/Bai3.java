@@ -1,6 +1,7 @@
 package com.example.kma_practice.bai3;
 
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -8,16 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kma_practice.R;
+import com.example.kma_practice.bai10.AccountBai10;
 import com.example.kma_practice.bai8.Song;
-import com.example.kma_practice.object.ItemBai3;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +29,7 @@ public class Bai3 extends AppCompatActivity {
 
     RecyclerView rcv;
     List<Song> list;
+    List<AccountBai10> listUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +37,8 @@ public class Bai3 extends AppCompatActivity {
         setContentView(R.layout.activity_bai3);
 
         requestPermission();
-        addItem();
+        laodAccountBai10();
+        //addItem();
         initUI();
 
     }
@@ -56,7 +62,18 @@ public class Bai3 extends AppCompatActivity {
     void initUI() {
         rcv = findViewById(R.id.rcvContacts);
         rcv.setLayoutManager(new LinearLayoutManager(this));
-        rcv.setAdapter(new MyAdapter(getApplicationContext(), list));
+        rcv.setAdapter(new MyAdapter(getApplicationContext(), listUser));
+    }
+
+    private void laodAccountBai10() {
+        AssetManager assetManager = getAssets();
+        try (InputStream inputStream = assetManager.open("users.json")) {
+            Gson gson = new Gson();
+            Type listType = new TypeToken<List<AccountBai10>>(){}.getType();
+            listUser = gson.fromJson(new InputStreamReader(inputStream), listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
