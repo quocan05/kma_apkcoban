@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/pink">
 
     <Button
         android:id="@+id/btnAddAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm Tài Khoản" />
+        android:text="them moi"
+        android:background="@color/pink" /> <!-- Sử dụng drawable đã tạo -->
 
     <ListView
         android:id="@+id/listViewAccounts"

@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btn_read_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đọc danh bạ" />
+
+    <EditText
+        android:id="@+id/et_display_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên hiển thị" />
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại" />
+
+    <Button
+        android:id="@+id/btn_add_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm danh bạ" />
+
+    <Button
+        android:id="@+id/btn_delete_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xóa danh bạ" />
+
+</LinearLayout>
